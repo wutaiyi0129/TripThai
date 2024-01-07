@@ -1,0 +1,15 @@
+{
+    "build": {
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "command": "npm install && npm run build",
+      "functions": {
+        "api/**/*.js": {
+          "runtime": "nodejs14.x",
+          "memory": 512
+        }
+      }
+    }
+  }
+  
