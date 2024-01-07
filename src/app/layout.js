@@ -1,7 +1,8 @@
-import { Inter } from 'next/font/google'
+import { Roboto } from 'next/font/google'
 import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import Header from './components/Layout/Header'
+import { AppProvider } from '/Users/tony/Desktop/food-order/src/app/components/AppContext.js'
+const roboto = Roboto({ subsets: ['latin'], weight:'700' })
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +12,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={roboto.className}>
+        <main className='max-w-4xl  mx-auto p-5'>
+          <AppProvider>
+
+          <Header/>
+        {children}
+        <footer className="border-t p-8 text-center text-gray-700">
+  &copy; 2023 All rights reserved
+         </footer>
+          </AppProvider>
+        </main>
+        </body>
     </html>
   )
 }
